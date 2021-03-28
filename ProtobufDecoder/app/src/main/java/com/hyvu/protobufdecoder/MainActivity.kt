@@ -10,7 +10,6 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.hyvu.protobufdecoder.utils.StorageUtils
 import kotlinx.android.synthetic.main.activity_main.*
-import java.nio.charset.Charset
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 

@@ -1,7 +1,6 @@
 package com.hyvu.protobufdecoder.utils
 
 import java.lang.Exception
-import java.nio.charset.Charset
 
 class ProtocolBufferUtils {
     companion object {

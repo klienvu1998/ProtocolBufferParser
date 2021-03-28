@@ -4,16 +4,16 @@ class ProtocolBuffer {
     companion object {
         private val protocolBufferParser = ProtocolBufferParser()
 
-        init {
-            protocolBufferParser.generateStructure()
+        fun parseData(isHexData: Boolean) {
+            protocolBufferParser.generateStructure(isHexData)
         }
 
-        fun setHexString(data: String) {
-            protocolBufferParser.setHexString(data)
+        fun setInputString(data: String) {
+            protocolBufferParser.setInputString(data)
         }
 
-        fun getHexString(): String {
-            return protocolBufferParser.getHexString()
+        fun getInputString(): String {
+            return protocolBufferParser.getInputString()
         }
 
         fun getParseString(): String {

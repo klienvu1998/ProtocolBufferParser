@@ -13,7 +13,7 @@ class ProtocolBufferParser {
         const val BIT32 = 5
     }
 
-    private var hexString = "08E50F12145772617070657220436C61737320537472696E" +
+    private var dataString = "08E50F12145772617070657220436C61737320537472696E" +
             "671A1608960112114E65737420436C61737320537472696E" +
             "67" + "08E50F12145772617070657220436C61737320537472696E" +
             "671A1608960112114E65737420436C61737320537472696E" +
@@ -22,17 +22,28 @@ class ProtocolBufferParser {
     private val output = StringBuilder()
     private var depthNestClass = 0
 
-    fun setHexString(data: String) {
-        hexString = data
+    fun setInputString(data: String) {
+        dataString = data
     }
 
-    fun getHexString(): String {
-        return hexString
+    fun getInputString(): String {
+        return dataString
     }
 
-    fun generateStructure() {
+    fun generateStructure(isHexData: Boolean) {
         listData = ArrayList()
-        val byteArray = ProtocolBufferUtils.hexStringToByteArray(hexString)
+        var byteArray: ByteArray?
+        if (isHexData) {
+            byteArray = ProtocolBufferUtils.hexStringToByteArray(dataString)
+            if (byteArray == null) {
+                return
+            }
+        } else {
+            byteArray = ProtocolBufferUtils.binaryStringToByteArray(dataString)
+            if (byteArray == null) {
+                return
+            }
+        }
         var index = 0
         while (index < byteArray.size) {
             index = generateStructureObject(byteArray, index, DataEntity(), listData!!)

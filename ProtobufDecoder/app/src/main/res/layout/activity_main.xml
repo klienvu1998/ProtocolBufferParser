@@ -20,30 +20,72 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_horizontal"
-                android:layout_marginBottom="10dp">
+                android:layout_marginBottom="@dimen/margin_10dp">
 
                 <Button
                     android:id="@+id/btnLoadData"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Load data txt + parse"
-                    android:layout_marginRight="10dp"
+                    android:text="@string/load_data_txt_parse"
+                    android:layout_marginRight="@dimen/margin_10dp"
                     android:layout_gravity="center_horizontal" />
 
                 <Button
                     android:id="@+id/btnExportData"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Export txt"
+                    android:text="@string/export_txt"
                     android:layout_gravity="center_horizontal" />
 
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="@string/input_type"/>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rbBinary"
+                        android:checked="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/binary"/>
+
+                    <RadioButton
+                        android:id="@+id/rbHex"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_10dp"
+                        android:text="@string/hex"/>
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnParse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/margin_10dp"
+                android:text="@string/parse"/>
 
             <TextView
                 android:id="@+id/tvInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="@dimen/margin_10dp"/>
 
             <TextView
                 android:id="@+id/tvLog"

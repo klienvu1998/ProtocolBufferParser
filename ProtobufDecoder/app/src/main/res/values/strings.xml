@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">ProtobufDecoder</string>
+    <string name="export_txt">Export txt</string>
+    <string name="load_data_txt_parse">Load data txt</string>
+    <string name="input_type">Input type:</string>
+    <string name="binary">Binary</string>
+    <string name="hex">Hex</string>
+    <string name="parse">parse</string>
+    <string name="input_error">Input error</string>
 </resources>

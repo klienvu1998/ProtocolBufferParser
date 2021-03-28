@@ -1,22 +1,40 @@
 package com.hyvu.protobufdecoder.utils
 
+import java.lang.Exception
 import java.nio.charset.Charset
 
 class ProtocolBufferUtils {
     companion object {
-        fun hexStringToByteArray(hexString: String): ByteArray {
+        fun hexStringToByteArray(hexString: String): ByteArray? {
             if (hexString.length % 2 == 1) {
-                throw IllegalArgumentException(
-                    "Invalid hexadecimal String supplied.");
+                return null
             }
             val byteArray = ByteArray(hexString.length / 2)
             for (i in hexString.indices step 2) {
                 byteArray[i/2] =
-                    hexToByte(
-                        hexString.substring(i, i + 2)
-                    )
+                        hexToByte(
+                                hexString.substring(i, i + 2)
+                        )
             }
             return byteArray
+        }
+
+        fun binaryStringToByteArray(binaryString: String): ByteArray? {
+            if (binaryString.length % 4 == 1) {
+                return null
+            }
+            val hexString = StringBuilder()
+            for (i in binaryString.indices step 4) {
+                try {
+                    val hexValueBinary = "${binaryString[i]}${binaryString[i+1]}${binaryString[i+2]}${binaryString[i+3]}"
+                    val n = hexValueBinary.toInt(2)
+                    val s = n.toString(16)
+                    hexString.append(s)
+                } catch (e: Exception) {
+
+                }
+            }
+            return hexStringToByteArray(hexString.toString())
         }
 
         fun hexToByte(hexString: String): Byte {
